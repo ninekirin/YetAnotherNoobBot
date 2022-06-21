@@ -16,13 +16,13 @@ function sendMessage($chat_id, $message, $reply_to_message_id) {
     return get($url, $header);
 }
 
-function forwardMessage($chat_id, $message_id) {
+function deleteMessage($chat_id, $message_id) {
     $url = "https://api.telegram.org/bot" . token . "/deleteMessage?chat_id=$chat_id&message_id=$message_id";
     $header = [""];
     return get($url, $header);
 }
 
-function deleteMessage($chat_id, $message, $reply_to_message_id) {
+function forwardMessage($chat_id, $message, $reply_to_message_id) {
     $message = urlencode($message);
     $url = "https://api.telegram.org/bot" . token . "/sendMessage?chat_id=$chat_id&text=$message&reply_to_message_id=$reply_to_message_id&parse_mode=HTML";
     $header = [""];
